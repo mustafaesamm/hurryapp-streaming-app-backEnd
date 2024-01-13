@@ -37,10 +37,10 @@ $theResult=$connection->prepare($stmt);
 $theResult->execute(['password'=>$hashPassword,'username'=>$username]);
 
 
-$stmtFetchId='select id from users where  username like :username';
+$stmtFetchId='select id,username from users where  username like :username';
 $theStmtReady=$connection->prepare($stmtFetchId);
 $theStmtReady->execute(['username'=>$username]);
-$theNewId=$theStmtReady->fetchColumn();
+$theInfo=$theStmtReady->fetch();
 
 // jwt parameters
 
@@ -51,7 +51,8 @@ $domainName = "your.domain.name";
 $request_data = [
     'st'  => $date,
     'et'  => $expire_at,
-    'id' => $theNewId,
+    'id' => $theInfo['id'],
+    'username' => $theInfo['username'],
 ];
 
 $theJwtCode= JWT::encode(

@@ -35,6 +35,7 @@ $request_data = [
     'st'  => $date,
     'et'  => $expire_at,
     'id' => $getInfoUser['id'],
+    'username'=> $username
 ];
 
 $theJwtCode= JWT::encode(
