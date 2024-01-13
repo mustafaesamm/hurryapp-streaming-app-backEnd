@@ -1,6 +1,8 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header('Content-Type:application/json');
+date_default_timezone_set('Asia/Riyadh');
+
 $serverName='localhost';
 $dbName='streamingapp';
 $userName='root';

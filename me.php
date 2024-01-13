@@ -1,15 +1,16 @@
 <?php
-date_default_timezone_set('Asia/Riyadh');
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
+
 require_once('vendor/autoload.php');
 require_once('dbConnect.php');
+use Firebase\JWT\JWT;
+use \Firebase\JWT\Key;
 // get request headers
 
 $thedearders=getallheaders();
 $thedeardersToken=$thedearders['Authorization'];
 
 // JWT DECODE
+
 $key = "68V0zWFrS72GbpPreidkQFLfj4v9m3Ti+DXc8OB0gcM=";
 $decoded = JWT::decode($thedeardersToken, new Key($key, 'HS256'));
 

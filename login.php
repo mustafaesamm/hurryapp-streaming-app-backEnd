@@ -1,10 +1,9 @@
 <?php
-date_default_timezone_set('Asia/Riyadh');
-use Firebase\JWT\JWT;
-use \Firebase\JWT\Key;
+
 require_once('vendor/autoload.php');
 require_once('dbConnect.php');
-
+use Firebase\JWT\JWT;
+use \Firebase\JWT\Key;
 
 $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
 
